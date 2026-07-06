@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phoenix External Pro – Официальный сайт</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix External Pro</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
@@ -18,7 +18,7 @@
             padding: 20px;
             background-image: radial-gradient(circle at 10% 20%, #1a1a2e 0%, #0a0a12 80%);
         }
-        .container { max-width: 1100px; width:100%; }
+        .container { max-width: 1100px; width: 100%; }
         .header {
             display: flex;
             justify-content: space-between;
@@ -52,17 +52,6 @@
             color: #aaa;
             font-size: 14px;
         }
-        .admin-badge {
-            background: #ff4444;
-            color: #fff;
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-left: 6px;
-        }
         .btn {
             padding: 8px 20px;
             border: none;
@@ -93,13 +82,6 @@
         .btn-outline:hover {
             border-color: #ffd700;
             color: #ffd700;
-        }
-        .btn-danger {
-            background: #ff3333;
-            color: #fff;
-        }
-        .btn-danger:hover {
-            background: #cc0000;
         }
         .hidden { display: none !important; }
         .tabs {
@@ -229,36 +211,6 @@
             word-break: break-all;
             margin: 16px 0;
         }
-        .admin-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0;
-            font-size: 14px;
-        }
-        .admin-table th {
-            text-align: left;
-            padding: 10px 8px;
-            border-bottom: 1px solid #2a2a3a;
-            color: #aaa;
-            font-weight: 600;
-        }
-        .admin-table td {
-            padding: 10px 8px;
-            border-bottom: 1px solid #1a1a2a;
-            color: #ddd;
-        }
-        .admin-table .delete-btn {
-            background: #ff3333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 4px 12px;
-            cursor: pointer;
-            font-size: 12px;
-        }
-        .admin-table .delete-btn:hover {
-            background: #cc0000;
-        }
         .auth-modal {
             display: none;
             position: fixed;
@@ -335,12 +287,11 @@
             .user-area { justify-content: center; }
             .tabs { justify-content: center; }
             .tab { padding: 8px 16px; font-size: 14px; }
-            .admin-table { font-size: 12px; }
         }
     </style>
 </head>
 <body>
-<div class="container" id="app">
+<div class="container">
     <!-- Шапка -->
     <div class="header">
         <div class="logo">Phoenix <span>External Pro</span></div>
@@ -357,7 +308,6 @@
         <div class="tab active" data-tab="home">Главная</div>
         <div class="tab" data-tab="pricing" id="pricingTab">Купить</div>
         <div class="tab" data-tab="account" id="accountTab">Мой ключ</div>
-        <div class="tab" data-tab="admin" id="adminTab">Админ-панель</div>
     </div>
 
     <!-- Главная -->
@@ -419,33 +369,6 @@
         <div id="accountError" class="error" style="color: #ff6666; margin: 12px 0;"></div>
     </div>
 
-    <!-- Админ-панель -->
-    <div class="tab-content" id="tab-admin">
-        <h2 style="color: #ffd700;">Администрирование лицензий</h2>
-        <div id="adminPanel">
-            <div id="adminLoader" style="color: #aaa;">Загрузка данных...</div>
-            <div id="adminContent" class="hidden">
-                <h3 style="margin: 16px 0 8px;">Список всех лицензий</h3>
-                <div id="licenseList"></div>
-                <hr style="border-color: #2a2a3a; margin: 24px 0;" />
-                <h3 style="margin: 16px 0 8px;">Генератор ключей для пользователя</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: end;">
-                    <div style="flex: 1 1 200px;">
-                        <label style="display: block; font-size: 13px; color: #aaa;">Email пользователя</label>
-                        <input type="email" id="adminGenEmail" placeholder="user@example.com" style="width:100%; padding:10px; background:#1e1e2a; border:1px solid #444; border-radius:8px; color:#e0e0e0;" />
-                    </div>
-                    <div style="flex: 0 0 120px;">
-                        <label style="display: block; font-size: 13px; color: #aaa;">Срок (дней)</label>
-                        <input type="number" id="adminGenDays" value="30" min="1" max="3650" style="width:100%; padding:10px; background:#1e1e2a; border:1px solid #444; border-radius:8px; color:#e0e0e0;" />
-                    </div>
-                    <button class="btn btn-gold" id="adminGenBtn">Сгенерировать</button>
-                </div>
-                <div id="adminGenResult" style="margin-top: 12px;"></div>
-            </div>
-        </div>
-        <div id="adminError" class="error" style="color: #ff6666; margin: 12px 0;"></div>
-    </div>
-
     <div class="footer"><span>Phoenix External Pro</span> · Работает на Supabase · 2026</div>
 </div>
 
@@ -466,13 +389,10 @@
     // ===== НАСТРОЙКИ =====
     const SUPABASE_URL = "https://dacthmntwebszqactdwiji.supabase.co";
     const SUPABASE_ANON_KEY = "sb_publishable_-2P8XS5J5QZoadkN8FY1LQ_LqV7VNqD";
-    const ADMIN_EMAIL = "zao.astronaftik@gmail.com";
 
     const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     let currentUser = null;
-    let isAdmin = false;
 
-    // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
     function showEl(id) { document.getElementById(id).classList.remove('hidden'); }
     function hideEl(id) { document.getElementById(id).classList.add('hidden'); }
     function showAuthModal(title) {
@@ -520,11 +440,6 @@
         errorDiv.textContent = '';
         if (!email || !password) { errorDiv.textContent = 'Заполните все поля.'; return; }
 
-        if (email === ADMIN_EMAIL && isRegister) {
-            errorDiv.textContent = 'Этот email уже зарегистрирован.';
-            return;
-        }
-
         if (isRegister) {
             const { error } = await supabase.auth.signUp({ email, password });
             if (error) { errorDiv.textContent = error.message; return; }
@@ -539,7 +454,6 @@
             const { data, error } = await supabase.auth.signInWithPassword({ email, password });
             if (error) { errorDiv.textContent = error.message; return; }
             currentUser = { id: data.user.id, email: data.user.email };
-            isAdmin = (currentUser.email === ADMIN_EMAIL);
             hideAuthModal();
             updateUI();
         }
@@ -548,7 +462,6 @@
     document.getElementById('logoutBtn').addEventListener('click', async () => {
         await supabase.auth.signOut();
         currentUser = null;
-        isAdmin = false;
         updateUI();
         document.querySelector('[data-tab="home"]').click();
     });
@@ -561,24 +474,14 @@
         const logoutBtn = document.getElementById('logoutBtn');
         const pricingTab = document.getElementById('pricingTab');
         const accountTab = document.getElementById('accountTab');
-        const adminTab = document.getElementById('adminTab');
 
         if (currentUser) {
             emailSpan.textContent = currentUser.email;
-            if (isAdmin) {
-                emailSpan.innerHTML += ' <span class="admin-badge">ADMIN</span>';
-            }
             loginBtn.classList.add('hidden');
             registerBtn.classList.add('hidden');
             logoutBtn.classList.remove('hidden');
             pricingTab.classList.remove('hidden');
             accountTab.classList.remove('hidden');
-            if (isAdmin) {
-                adminTab.classList.remove('hidden');
-                loadAdminPanel();
-            } else {
-                adminTab.classList.add('hidden');
-            }
             loadLicense();
         } else {
             emailSpan.textContent = '';
@@ -587,11 +490,10 @@
             logoutBtn.classList.add('hidden');
             pricingTab.classList.add('hidden');
             accountTab.classList.add('hidden');
-            adminTab.classList.add('hidden');
         }
     }
 
-    // ===== ЗАГРУЗКА ЛИЦЕНЗИИ (для пользователя) =====
+    // ===== ЗАГРУЗКА ЛИЦЕНЗИИ =====
     async function loadLicense() {
         if (!currentUser) return;
         const { data, error } = await supabase
@@ -635,7 +537,7 @@
         });
     });
 
-    // ===== ПОКУПКА (фейковая оплата) =====
+    // ===== ПОКУПКА =====
     document.getElementById('purchaseBtn').addEventListener('click', async () => {
         if (!currentUser) {
             alert('Сначала войдите в аккаунт!');
@@ -648,7 +550,6 @@
         resultDiv.classList.add('hidden');
         errorDiv.textContent = '';
 
-        // Имитация оплаты (просто задержка)
         document.getElementById('purchaseBtn').textContent = 'Обработка...';
         document.getElementById('purchaseBtn').disabled = true;
         await new Promise(resolve => setTimeout(resolve, 1000));
@@ -679,117 +580,10 @@
         navigator.clipboard.writeText(key).then(() => alert('Ключ скопирован!'));
     });
 
-    // ===== АДМИН-ПАНЕЛЬ =====
-    async function loadAdminPanel() {
-        if (!isAdmin) return;
-        document.getElementById('adminLoader').classList.remove('hidden');
-        document.getElementById('adminContent').classList.add('hidden');
-        document.getElementById('adminError').textContent = '';
-
-        try {
-            // Получаем все лицензии с данными пользователей
-            const { data, error } = await supabase
-                .from('licenses')
-                .select('id, license_key, expires_at, user_id, is_active')
-                .order('expires_at', { ascending: false });
-
-            if (error) {
-                document.getElementById('adminError').textContent = 'Ошибка загрузки: ' + error.message;
-                return;
-            }
-
-            // Получаем email для каждого user_id
-            const userIds = data.map(row => row.user_id).filter(id => id);
-            let emails = {};
-            if (userIds.length > 0) {
-                const { data: users, error: usersError } = await supabase
-                    .from('auth.users')
-                    .select('id, email')
-                    .in('id', userIds);
-                if (!usersError) {
-                    users.forEach(u => emails[u.id] = u.email);
-                }
-            }
-
-            let html = '<table class="admin-table"><thead><tr><th>Email</th><th>Ключ</th><th>Истекает</th><th>Действие</th></tr></thead><tbody>';
-            for (const row of data) {
-                const email = emails[row.user_id] || 'unknown';
-                html += `<tr>
-                    <td>${email}</td>
-                    <td style="font-family: monospace; font-size: 13px;">${row.license_key}</td>
-                    <td>${row.expires_at}</td>
-                    <td><button class="delete-btn" data-id="${row.id}">Удалить</button></td>
-                </tr>`;
-            }
-            html += '</tbody></table>';
-            document.getElementById('licenseList').innerHTML = html;
-
-            // Обработчики удаления
-            document.querySelectorAll('.delete-btn').forEach(btn => {
-                btn.addEventListener('click', async function() {
-                    const id = this.dataset.id;
-                    if (!confirm('Удалить эту лицензию?')) return;
-                    const { error } = await supabase
-                        .from('licenses')
-                        .delete()
-                        .eq('id', id);
-                    if (error) {
-                        alert('Ошибка удаления: ' + error.message);
-                    } else {
-                        loadAdminPanel(); // обновить список
-                    }
-                });
-            });
-
-            document.getElementById('adminLoader').classList.add('hidden');
-            document.getElementById('adminContent').classList.remove('hidden');
-        } catch (e) {
-            document.getElementById('adminError').textContent = 'Ошибка: ' + e.message;
-            document.getElementById('adminLoader').classList.add('hidden');
-        }
-    }
-
-    // ===== ГЕНЕРАТОР ДЛЯ АДМИНА =====
-    document.getElementById('adminGenBtn').addEventListener('click', async () => {
-        if (!isAdmin) return;
-        const email = document.getElementById('adminGenEmail').value.trim();
-        const days = parseInt(document.getElementById('adminGenDays').value) || 30;
-        const resultDiv = document.getElementById('adminGenResult');
-        resultDiv.innerHTML = 'Генерация...';
-        resultDiv.style.color = '#aaa';
-
-        if (!email) {
-            resultDiv.innerHTML = 'Введите email пользователя.';
-            resultDiv.style.color = '#ff6666';
-            return;
-        }
-
-        try {
-            const resp = await fetch('https://dacthmntwebszqactdwiji.supabase.co/functions/v1/generate-license', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, days })
-            });
-            const data = await resp.json();
-            if (!data.success) {
-                resultDiv.innerHTML = 'Ошибка: ' + (data.error || 'Неизвестная ошибка');
-                resultDiv.style.color = '#ff6666';
-                return;
-            }
-            resultDiv.innerHTML = `Ключ для <strong>${email}</strong> успешно сгенерирован: <br><span style="font-family: monospace; color: #ffd700; font-size: 18px;">${data.license_key}</span>`;
-            resultDiv.style.color = '#66ff66';
-            loadAdminPanel(); // обновить список
-        } catch (e) {
-            resultDiv.innerHTML = 'Ошибка сети: ' + e.message;
-            resultDiv.style.color = '#ff6666';
-        }
-    });
-
     // ===== ИНИЦИАЛИЗАЦИЯ СЕССИИ =====
     supabase.auth.getSession().then(({ data: { session } }) => {
         if (session) {
             currentUser = { id: session.user.id, email: session.user.email };
-            isAdmin = (currentUser.email === ADMIN_EMAIL);
             updateUI();
         } else {
             updateUI();
@@ -799,11 +593,9 @@
     supabase.auth.onAuthStateChange((event, session) => {
         if (event === 'SIGNED_IN' && session) {
             currentUser = { id: session.user.id, email: session.user.email };
-            isAdmin = (currentUser.email === ADMIN_EMAIL);
             updateUI();
         } else if (event === 'SIGNED_OUT') {
             currentUser = null;
-            isAdmin = false;
             updateUI();
         }
     });
